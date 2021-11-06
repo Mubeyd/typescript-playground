@@ -1,8 +1,8 @@
 let userName = "Muhammed";
-let lastName = "Ubeyd";
+let lastName = " Ubeyd";
 
 let isLoggedIn = true;
 
-userName += " Ubeyd";
+userName += " " + lastName;
 
 console.log(userName);
