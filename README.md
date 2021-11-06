@@ -1,2 +1,4 @@
 # typescript-playground
-useful types in typescript
+## useful types in typescript
+### First Hierarchy
+#### Second Hierarchy
