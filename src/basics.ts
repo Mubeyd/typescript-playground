@@ -1,6 +1,8 @@
 let userName = "Muhammed";
+let lastName = "Ubeyd";
+
 let isLoggedIn = true;
 
-isLoggedIn += " Ubeyd";
+userName += " Ubeyd";
 
-console.log(isLoggedIn);
+console.log(userName);
