@@ -6,7 +6,7 @@
   "author": "Muhammed Ubeyd <muhammedubeyd101112@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "comp": "npx ts-node src/readonlyStaticClass.ts "
+    "comp": "npx ts-node src/mixins.ts "
   },
   "devDependencies": {
     "ts-node": "^10.4.0",
