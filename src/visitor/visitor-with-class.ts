@@ -1,5 +1,9 @@
-
 import fetch from "node-fetch";
+
+type JsonT<DataType> = {
+  next?: string | undefined;
+  results: DataType[];
+};
 
 class VisitAllPages<DataType> {
   constructor(private baseUrl: string) {}
@@ -8,11 +12,10 @@ class VisitAllPages<DataType> {
     let nextUrl: string | undefined = this.baseUrl;
     do {
       const response = await fetch(nextUrl);
-      const json: {
-        next?: string;
-        results: DataType[];
-      } = await response.json();
+      const json: JsonT<DataType> = await response.json();
+
       visitor(json.results);
+
       nextUrl = json.next;
     } while (nextUrl);
   }
@@ -27,6 +30,6 @@ const visitor = new VisitAllPages<Pokemon[]>(
   "https://pokeapi.co/api/v2/pokemon/"
 );
 
-visitor.visit((results) => {
+visitor.visit(results => {
   console.log(results);
 });

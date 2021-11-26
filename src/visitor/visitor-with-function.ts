@@ -1,5 +1,9 @@
-
 import fetch from "node-fetch";
+
+type JsonT<DataType> = {
+    next?: string | undefined;
+    results: DataType[];
+}
 
 async function visit<DataType>(
   baseUrl: string,
@@ -8,10 +12,7 @@ async function visit<DataType>(
   let nextUrl: string | undefined = baseUrl;
   do {
     const response = await fetch(nextUrl);
-    const json: {
-      next?: string;
-      results: DataType[];
-    } = await response.json();
+    const json: JsonT<DataType> = await response.json();
     visitor(json.results);
     nextUrl = json.next;
   } while (nextUrl);
